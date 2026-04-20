@@ -25,13 +25,14 @@ export class LoginPage {
     }
 
     async gotoLoginPage() {
-        await this.page.goto("https://adactinhotelapp.com/HotelAppBuild2/"); //https://adactinhotelapp.com/HotelAppBuild2/
+        await this.page.goto("https://adactinhotelapp.com/HotelAppBuild2/"); //https://adactinhotelapp.com/HotelAppBuild2/ https://adactinhotelapp.com/index.php
     }
 
     async login(username: any, password: any) {
         await this.username_textbox.fill(username);
         await this.password_textbox.fill(password);
         await this.Login_button.click();
+        await this.page.waitForLoadState('domcontentloaded');
     }
 
     async ForgotPasswordlink() {

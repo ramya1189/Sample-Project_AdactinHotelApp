@@ -31,7 +31,7 @@ test.describe('Login Tests', () => {
     test('Login with invalid credentials', async ({ page }) => {
 
         await login.gotoLoginPage();
-        await login.login('Ramya', '12345');
+        await login.login('Ramya2507', '12345');
         const errorMessage = page.locator("div.auth_error");
         //await expect(errorMessage).toBeVisible(); invalid as there should be a exact text message to be Visible
         //toHavetext() - matches text exactly 
@@ -103,6 +103,16 @@ test.describe('Login Tests', () => {
         await newUserRegistration.verifyemailerrormessage('Ramya123');
         await newUserRegistration.RegisterButtonClick();
         await expect(page.locator('#email_add_span')).toContainText("Invalid email, Please enter correct email.");
+
+    })
+    test('Verify the error message for username for min characters',async({page})=>{
+
+        await login.gotoLoginPage();
+        await login.gotoNewUserRegistration();
+        await newUserRegistration.errormessage_username_mincharacter('Ramya');
+        await newUserRegistration.RegisterButtonClick()
+
+
 
     })
 })

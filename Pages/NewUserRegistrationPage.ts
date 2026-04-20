@@ -55,9 +55,13 @@ export class NewUserRegistration {
 
     }
 
-    async verifyemailerrormessage(email_textbox:string){
+    async verifyemailerrormessage(email_textbox:string){ //noneed
         await this.email_textbox.fill(email_textbox);
         
+    }
+    async errormessage_username_mincharacter(username:string){ //noneed
+        await this.username_textbox.fill(username);
+
     }
 
 
